@@ -2,7 +2,7 @@ class Dev < ActiveRecord::Base
     has_many :freebies
     has_many :companies, through: :freebies
 
-    def received_one(item_name)
+    def received_one?(item_name)
       self.freebies.any?{|freebie| freebie.item_name.downcase == item_name.downcase}
     end
 
